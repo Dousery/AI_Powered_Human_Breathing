@@ -220,10 +220,6 @@ const HealthInfo = () => {
           KOAH'ın erken teşhisi hayat kurtarır. Şüpheli belirtileriniz varsa 
           mutlaka bir göğüs hastalıkları uzmanına başvurun.
         </p>
-        <button className="btn-primary inline-flex items-center">
-          <Activity className="w-5 h-5 mr-2" />
-          KOAH Risk Analizi Yap
-        </button>
       </div>
     </div>
   );

@@ -23,13 +23,6 @@ const About = () => {
       description: 'Hasta verileriniz güvenle işlenir ve korunur.',
       color: 'text-purple-600',
       bgColor: 'bg-purple-50'
-    },
-    {
-      icon: Users,
-      title: 'Uzman Desteği',
-      description: 'Sağlık profesyonelleri tarafından geliştirilmiş ve onaylanmış sistem.',
-      color: 'text-orange-600',
-      bgColor: 'bg-orange-50'
     }
   ];
 
@@ -115,12 +108,15 @@ const About = () => {
         <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
           Sistem Özellikleri
         </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center place-items-center">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
-              <div key={index} className="card text-center hover:shadow-xl transition-shadow duration-300">
-                <div className={`inline-flex items-center justify-center w-16 h-16 ${feature.bgColor} rounded-full mb-6`}>
+              <div
+                key={index}
+                className="card text-center hover:shadow-xl transition-shadow duration-300 w-full min-w-[300px] flex flex-col h-full justify-center"
+              >
+                <div className={`inline-flex items-center justify-center w-16 h-16 ${feature.bgColor} rounded-full mb-6 mx-auto`}>
                   <Icon className={`w-8 h-8 ${feature.color}`} />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">{feature.title}</h3>
@@ -229,7 +225,7 @@ const About = () => {
           KOAH AI - Yapay Zeka Destekli Sağlık Teknolojisi
         </p>
         <p className="text-sm text-gray-500">
-          © 2024 Tüm hakları saklıdır. Bu uygulama tıbbi teşhis yerine geçmez.
+          © 2025 Tüm hakları saklıdır. Bu uygulama tıbbi teşhis yerine geçmez.
         </p>
       </div>
     </div>
