@@ -6,6 +6,9 @@ import pickle
 import os
 from datetime import datetime
 
+# Streamlit sayfa konfigürasyonu - en başta olmalı
+st.set_page_config(page_title="Hasta Durumu Tahminleme", layout="centered")
+
 # Yeni eklenen kütüphaneler ve fonksiyonlar
 from scipy.signal import find_peaks
 from scipy.stats import skew, kurtosis, entropy
@@ -200,8 +203,6 @@ def extract_all_features(patient_age, patient_smoking, sensor_data, audio_signal
     return features
 
 # --- Streamlit Uygulaması Arayüzü ---
-st.set_page_config(page_title="Hasta Durumu Tahminleme", layout="centered")
-
 st.title("Hasta Durumu Tahminleme Uygulaması")
 st.markdown("Yeni bir hasta için `column1.txt`, `column3.txt` ve `metadata.txt` dosyalarını yükleyerek hastalığı tahmin edin.")
 
