@@ -28,20 +28,17 @@ const About = () => {
 
   const team = [
     {
-      name: 'AI Developer\n(Doğuser Yarar)',
-      role: 'Machine Learning & Data Analysis',
-      description: 'Developed the AI model and data analysis.'
+      name: 'AI & Software Developer\n(Doğuser Yarar)',
+      role: 'AI & Software Development',
+      description: 'Developed the AI model and a user-friendly interface.',
+      photo: '/team/doguser.jpg'
     },
     {
       name: 'Hardware Designer\n(Yunus Emre Dangaç)',
       role: 'Hardware Design',
-      description: 'Developed the custom breathing sensor hardware.'
+      description: 'Developed the custom breathing sensor hardware.',
+      photo: '/team/yunus.jpg'
     },
-    {
-      name: 'Software Developer\n(Doğuser Yarar)',
-      role: 'System Development',
-      description: 'Developed the user-friendly interface.'
-    }
   ];
 
   const technology = [
@@ -146,19 +143,29 @@ const About = () => {
         <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
           Development Team
         </h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          {team.map((member, index) => (
-            <div key={index} className="card text-center">
-              <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mx-auto mb-4 flex items-center justify-center">
-                <Users className="w-10 h-10 text-white" />
+        <div className="w-full flex flex-col items-center">
+          <div className="grid md:grid-cols-2 gap-8 justify-center place-items-center">
+            {team.map((member, index) => (
+              <div key={index} className="card text-center w-[300px] h-[350px] max-w-full flex flex-col items-center justify-center">
+                {member.photo ? (
+                  <img
+                    src={member.photo}
+                    alt={member.name}
+                    className="w-28 h-28 rounded-full mx-auto mb-4 object-cover border-4 border-white shadow"
+                  />
+                ) : (
+                  <div className="w-28 h-28 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <Users className="w-14 h-14 text-white" />
+                  </div>
+                )}
+                <div className="whitespace-pre-line">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{member.name}</h3>
+                </div>
+                <p className="text-blue-600 font-medium mb-3">{member.role}</p>
+                <p className="text-gray-600">{member.description}</p>
               </div>
-              <div className="whitespace-pre-line">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{member.name}</h3>
-              </div>
-              <p className="text-blue-600 font-medium mb-3">{member.role}</p>
-              <p className="text-gray-600">{member.description}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
 
