@@ -117,13 +117,6 @@ Frontend http://localhost:3000 adresinde çalışacaktır.
 - **Responsive**: Mobil ve desktop uyumlu
 - **Modern UI**: Temiz ve kullanıcı dostu arayüz
 
-## 📱 Ekran Görüntüleri
-
-- Ana sayfa: Modern hero section ve özellikler
-- Tahmin sayfası: Dosya yükleme ve sonuç analizi
-- Sağlık bilgileri: KOAH hakkında kapsamlı bilgiler
-- Responsive tasarım: Mobil ve tablet uyumlu
-
 ## 🤝 Katkıda Bulunma
 
 1. Projeyi fork edin
