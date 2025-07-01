@@ -5,22 +5,22 @@ const About = () => {
   const features = [
     {
       icon: Brain,
-      title: 'Yapay Zeka Teknolojisi',
-      description: 'Gelişmiş makine öğrenmesi algoritmaları ile yüksek doğruluk oranında tahminleme.',
+      title: 'Artificial Intelligence Technology',
+      description: 'Prediction with advanced machine learning algorithms and high accuracy.',
       color: 'text-blue-600',
       bgColor: 'bg-blue-50'
     },
     {
       icon: Database,
-      title: 'Kapsamlı Veri Analizi',
-      description: 'Nefes ve ses sensörü verilerinden 17 farklı özellik analizi.',
+      title: 'Comprehensive Data Analysis',
+      description: 'Analysis of 17 different features from breath and sound sensor data.',
       color: 'text-green-600',
       bgColor: 'bg-green-50'
     },
     {
       icon: Shield,
-      title: 'Güvenli Veri İşleme',
-      description: 'Hasta verileriniz güvenle işlenir ve korunur.',
+      title: 'Secure Data Processing',
+      description: 'Your patient data is processed and protected securely.',
       color: 'text-purple-600',
       bgColor: 'bg-purple-50'
     }
@@ -28,19 +28,19 @@ const About = () => {
 
   const team = [
     {
-      name: 'AI Geliştirme Ekibi',
-      role: 'Makine Öğrenmesi & Veri Analizi',
-      description: 'Yapay zeka algoritmaları ve veri işleme konularında uzman ekip.'
+      name: 'AI Developer\n(Doğuser Yarar)',
+      role: 'Machine Learning & Data Analysis',
+      description: 'Developed the AI model and data analysis.'
     },
     {
-      name: 'Sağlık Uzmanları',
-      role: 'Tıbbi Danışmanlık',
-      description: 'Göğüs hastalıkları uzmanları ve sağlık profesyonelleri.'
+      name: 'Hardware Designer\n(Yunus Emre Dangaç)',
+      role: 'Hardware Design',
+      description: 'Developed the custom breathing sensor hardware.'
     },
     {
-      name: 'Yazılım Geliştiriciler',
-      role: 'Sistem Geliştirme',
-      description: 'Modern web teknolojileri ile kullanıcı dostu arayüz geliştirme.'
+      name: 'Software Developer\n(Doğuser Yarar)',
+      role: 'System Development',
+      description: 'Developed the user-friendly interface.'
     }
   ];
 
@@ -58,7 +58,7 @@ const About = () => {
       items: ['Ensemble Models', 'Feature Engineering', 'Signal Processing', 'MFCC Analysis']
     },
     {
-      category: 'Veri İşleme',
+      category: 'Data Processing',
       items: ['Pandas', 'Joblib', 'Signal Analysis', 'Audio Processing']
     }
   ];
@@ -67,10 +67,9 @@ const About = () => {
     <div className="max-w-6xl mx-auto space-y-16">
       {/* Header */}
       <div className="text-center">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">Hakkımızda</h1>
+        <h1 className="text-4xl font-bold text-gray-900 mb-4">About Us</h1>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          KOAH AI, yapay zeka teknolojisi ile KOAH hastalığının erken teşhisini 
-          kolaylaştırmak amacıyla geliştirilmiş yenilikçi bir sağlık uygulamasıdır.
+          KOAH AI is an innovative health application developed to facilitate the early diagnosis of COPD with artificial intelligence technology.
         </p>
       </div>
 
@@ -79,26 +78,20 @@ const About = () => {
         <div className="card">
           <div className="flex items-center mb-4">
             <Heart className="w-8 h-8 text-red-500 mr-3" />
-            <h2 className="text-2xl font-semibold text-gray-900">Misyonumuz</h2>
+            <h2 className="text-2xl font-semibold text-gray-900">Our Mission</h2>
           </div>
           <p className="text-gray-600 leading-relaxed">
-            KOAH hastalığının erken teşhisini kolaylaştırarak, hastaların yaşam kalitesini 
-            artırmak ve hastalığın ilerlemesini yavaşlatmak için yapay zeka destekli 
-            çözümler sunmak. Herkesin erişebileceği, güvenilir ve kullanıcı dostu 
-            sağlık teknolojileri geliştirmek.
+            To facilitate the early diagnosis of COPD, increase the quality of life of patients, and slow the progression of the disease by offering AI-powered solutions. To develop reliable and user-friendly health technologies accessible to everyone.
           </p>
         </div>
 
         <div className="card">
           <div className="flex items-center mb-4">
             <Award className="w-8 h-8 text-blue-500 mr-3" />
-            <h2 className="text-2xl font-semibold text-gray-900">Vizyonumuz</h2>
+            <h2 className="text-2xl font-semibold text-gray-900">Our Vision</h2>
           </div>
           <p className="text-gray-600 leading-relaxed">
-            Sağlık teknolojileri alanında öncü olmak ve yapay zeka destekli 
-            teşhis sistemlerini yaygınlaştırmak. KOAH ve benzeri solunum 
-            hastalıklarının erken teşhisinde standart haline gelmek ve 
-            global sağlık hizmetlerine katkıda bulunmak.
+            To be a pioneer in health technologies and to popularize AI-powered diagnostic systems. To become the standard in the early diagnosis of COPD and similar respiratory diseases and to contribute to global healthcare services.
           </p>
         </div>
       </div>
@@ -106,7 +99,7 @@ const About = () => {
       {/* Features */}
       <div>
         <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-          Sistem Özellikleri
+          System Features
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center place-items-center">
           {features.map((feature, index) => {
@@ -130,7 +123,7 @@ const About = () => {
       {/* Technology Stack */}
       <div className="card">
         <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-          Teknoloji Altyapısı
+          Technology Stack
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {technology.map((tech, index) => (
@@ -151,7 +144,7 @@ const About = () => {
       {/* Team */}
       <div>
         <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-          Geliştirme Ekibi
+          Development Team
         </h2>
         <div className="grid md:grid-cols-3 gap-8">
           {team.map((member, index) => (
@@ -159,7 +152,9 @@ const About = () => {
               <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mx-auto mb-4 flex items-center justify-center">
                 <Users className="w-10 h-10 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">{member.name}</h3>
+              <div className="whitespace-pre-line">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">{member.name}</h3>
+              </div>
               <p className="text-blue-600 font-medium mb-3">{member.role}</p>
               <p className="text-gray-600">{member.description}</p>
             </div>
@@ -170,27 +165,27 @@ const About = () => {
       {/* Model Information */}
       <div className="card bg-gradient-to-r from-blue-50 to-cyan-50">
         <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-          AI Model Bilgileri
+          AI Model Information
         </h2>
         <div className="grid md:grid-cols-2 gap-8">
           <div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-4">Model Özellikleri</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-4">Model Features</h3>
             <ul className="space-y-3 text-gray-600">
               <li>• <strong>Model Tipi:</strong> Ensemble Model</li>
-              <li>• <strong>Özellik Sayısı:</strong> 17 seçili özellik</li>
-              <li>• <strong>Sınıf Sayısı:</strong> 3 (Normal, Orta Risk, Yüksek Risk)</li>
-              <li>• <strong>Doğruluk Oranı:</strong> Yüksek performans</li>
-              <li>• <strong>Analiz Süresi:</strong> 30 saniyeden az</li>
+              <li>• <strong>Özellik Sayısı:</strong> 17 selected features</li>
+              <li>• <strong>Sınıf Sayısı:</strong> 3 (Normal, Medium Risk, High Risk)</li>
+              <li>• <strong>Doğruluk Oranı:</strong> High performance</li>
+              <li>• <strong>Analiz Süresi:</strong> Less than 5 seconds</li>
             </ul>
           </div>
           <div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-4">Analiz Edilen Veriler</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-4">Analyzed Data</h3>
             <ul className="space-y-3 text-gray-600">
-              <li>• <strong>Nefes Sensörü Verisi:</strong> Solunum gücü ve paterni</li>
-              <li>• <strong>Ses Sensörü Verisi:</strong> Solunum sesleri analizi</li>
-              <li>• <strong>Hasta Bilgileri:</strong> Yaş, sigara durumu, vb.</li>
-              <li>• <strong>Sinyal İşleme:</strong> FFT, MFCC, istatistiksel özellikler</li>
-              <li>• <strong>Makine Öğrenmesi:</strong> Özellik seçimi ve sınıflandırma</li>
+              <li>• <strong>Breath Sensor Data:</strong> Breath power and pattern</li>
+              <li>• <strong>Sound Sensor Data:</strong> Breath sound analysis</li>
+              <li>• <strong>Patient Data:</strong> Age, smoking status, etc.</li>
+              <li>• <strong>Signal Processing:</strong> FFT, MFCC, statistical features</li>
+              <li>• <strong>Machine Learning:</strong> Feature Selection and Classification</li>
             </ul>
           </div>
         </div>
@@ -199,21 +194,21 @@ const About = () => {
       {/* Contact & Support */}
       <div className="card">
         <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-          İletişim ve Destek
+          Contact & Support
         </h2>
         <div className="grid md:grid-cols-2 gap-8">
           <div className="text-center">
             <Code className="w-12 h-12 text-blue-600 mx-auto mb-4" />
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">Teknik Destek</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">Technical Support</h3>
             <p className="text-gray-600">
-              Sistem kullanımı ve teknik sorunlar için destek alabilirsiniz.
+              You can get support for system usage and technical problems.
             </p>
           </div>
           <div className="text-center">
             <Heart className="w-12 h-12 text-red-600 mx-auto mb-4" />
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">Sağlık Danışmanlığı</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">Health Consultancy</h3>
             <p className="text-gray-600">
-              KOAH hakkında bilgi ve sağlık önerileri için danışmanlık hizmeti.
+              Consultancy service for information and health recommendations about COPD.
             </p>
           </div>
         </div>
@@ -222,10 +217,10 @@ const About = () => {
       {/* Footer */}
       <div className="text-center py-8">
         <p className="text-gray-600 mb-4">
-          KOAH AI - Yapay Zeka Destekli Sağlık Teknolojisi
+          KOAH AI - AI-Powered Health Technology
         </p>
         <p className="text-sm text-gray-500">
-          © 2025 Tüm hakları saklıdır. Bu uygulama tıbbi teşhis yerine geçmez.
+          © 2025 All rights reserved. This application is not a substitute for medical diagnosis.
         </p>
       </div>
     </div>

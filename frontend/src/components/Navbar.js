@@ -7,10 +7,10 @@ const Navbar = () => {
   const location = useLocation();
 
   const navItems = [
-    { path: '/', label: 'Ana Sayfa', icon: Heart },
-    { path: '/prediction', label: 'KOAH Tahmini', icon: Activity },
-    { path: '/health-info', label: 'Sağlık Bilgileri', icon: Heart },
-    { path: '/about', label: 'Hakkında', icon: Heart },
+    { path: '/', label: 'Home', icon: Heart },
+    { path: '/prediction', label: 'COPD Prediction', icon: Activity },
+    { path: '/health-info', label: 'Health Information', icon: Heart },
+    { path: '/about', label: 'About', icon: Heart },
   ];
 
   const isActive = (path) => location.pathname === path;

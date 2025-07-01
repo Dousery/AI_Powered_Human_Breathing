@@ -16,7 +16,7 @@ const HealthInfo = () => {
       const response = await axios.get('/health-info');
       setHealthInfo(response.data.health_info);
     } catch (err) {
-      setError('Sağlık bilgileri yüklenirken bir hata oluştu.');
+      setError('An error occurred while loading health information.');
     } finally {
       setLoading(false);
     }
@@ -24,17 +24,17 @@ const HealthInfo = () => {
 
   const getCategoryIcon = (category) => {
     switch (category) {
-      case 'genel':
+      case 'general':
         return Info;
-      case 'belirtiler':
+      case 'symptoms':
         return AlertTriangle;
       case 'risk':
         return Shield;
-      case 'teşhis':
+      case 'diagnosis':
         return Activity;
-      case 'önleme':
+      case 'prevention':
         return Heart;
-      case 'tedavi':
+      case 'treatment':
         return Users;
       default:
         return BookOpen;
@@ -43,17 +43,17 @@ const HealthInfo = () => {
 
   const getCategoryColor = (category) => {
     switch (category) {
-      case 'genel':
+      case 'general':
         return 'bg-blue-50 text-blue-600 border-blue-200';
-      case 'belirtiler':
+      case 'symptoms':
         return 'bg-red-50 text-red-600 border-red-200';
       case 'risk':
         return 'bg-orange-50 text-orange-600 border-orange-200';
-      case 'teşhis':
+      case 'diagnosis':
         return 'bg-green-50 text-green-600 border-green-200';
-      case 'önleme':
+      case 'prevention':
         return 'bg-purple-50 text-purple-600 border-purple-200';
-      case 'tedavi':
+      case 'treatment':
         return 'bg-cyan-50 text-cyan-600 border-cyan-200';
       default:
         return 'bg-gray-50 text-gray-600 border-gray-200';
@@ -81,9 +81,9 @@ const HealthInfo = () => {
     <div className="max-w-6xl mx-auto space-y-8">
       {/* Header */}
       <div className="text-center">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">KOAH Hakkında Bilgiler</h1>
+        <h1 className="text-4xl font-bold text-gray-900 mb-4">COPD Information</h1>
         <p className="text-xl text-gray-600">
-          Kronik Obstrüktif Akciğer Hastalığı hakkında kapsamlı bilgiler
+          Comprehensive information about Chronic Obstructive Pulmonary Disease
         </p>
       </div>
 
@@ -115,30 +115,30 @@ const HealthInfo = () => {
 
       {/* Additional Information */}
       <div className="card">
-        <h2 className="text-2xl font-semibold text-gray-900 mb-6">KOAH Hakkında Ek Bilgiler</h2>
+        <h2 className="text-2xl font-semibold text-gray-900 mb-6">Additional Information About COPD</h2>
         
         <div className="grid md:grid-cols-2 gap-8">
           {/* Prevalence */}
           <div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">KOAH'ın Yaygınlığı</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Prevalence of COPD</h3>
             <div className="space-y-3 text-gray-600">
-              <p>• Dünya genelinde yaklaşık 384 milyon kişi KOAH'tan etkilenmektedir</p>
-              <p>• Her yıl 3 milyon kişi KOAH nedeniyle hayatını kaybetmektedir</p>
-              <p>• Türkiye'de 40 yaş üzeri her 5 kişiden 1'i KOAH hastasıdır</p>
-              <p>• KOAH, dünya genelinde ölüm nedenleri arasında 3. sırada yer almaktadır</p>
+              <p>• Approximately 384 million people worldwide are affected by COPD</p>
+              <p>• 3 million people die each year due to COPD</p>
+              <p>• 1 in 5 people over the age of 40 in Turkey has COPD</p>
+              <p>• COPD is the 3rd leading cause of death worldwide</p>
             </div>
           </div>
 
           {/* Risk Factors */}
           <div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Risk Faktörleri</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Risk Factors</h3>
             <div className="space-y-3 text-gray-600">
-              <p>• <strong>Sigara:</strong> En önemli risk faktörü (%80-90)</p>
-              <p>• <strong>Pasif sigara:</strong> Sigara içmeyenlerde de risk oluşturur</p>
-              <p>• <strong>Mesleki maruziyet:</strong> Toz, kimyasal, duman</p>
-              <p>• <strong>Hava kirliliği:</strong> İç ve dış ortam hava kirliliği</p>
-              <p>• <strong>Genetik faktörler:</strong> Aile öyküsü</p>
-              <p>• <strong>Yaş:</strong> 40 yaş üzeri risk artar</p>
+              <p>• <strong>Smoking:</strong> The most important risk factor (80-90%)</p>
+              <p>• <strong>Passive smoking:</strong> Also poses a risk for non-smokers</p>
+              <p>• <strong>Occupational exposure:</strong> Dust, chemicals, smoke</p>
+              <p>• <strong>Air pollution:</strong> Indoor and outdoor air pollution</p>
+              <p>• <strong>Genetic factors:</strong> Family history</p>
+              <p>• <strong>Age:</strong> Risk increases over 40 years old</p>
             </div>
           </div>
         </div>
@@ -146,16 +146,16 @@ const HealthInfo = () => {
 
       {/* Prevention Tips */}
       <div className="card bg-gradient-to-r from-blue-50 to-cyan-50">
-        <h2 className="text-2xl font-semibold text-gray-900 mb-6">KOAH'tan Korunma Yolları</h2>
+        <h2 className="text-2xl font-semibold text-gray-900 mb-6">Ways to Prevent COPD</h2>
         
         <div className="grid md:grid-cols-3 gap-6">
           <div className="text-center">
             <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <Shield className="w-8 h-8 text-blue-600" />
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Sigara Bırakma</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Quit Smoking</h3>
             <p className="text-gray-600">
-              Sigarayı bırakmak KOAH riskini azaltmanın en etkili yoludur.
+              Quitting smoking is the most effective way to reduce the risk of COPD.
             </p>
           </div>
 
@@ -163,9 +163,9 @@ const HealthInfo = () => {
             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <Activity className="w-8 h-8 text-green-600" />
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Düzenli Egzersiz</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Regular Exercise</h3>
             <p className="text-gray-600">
-              Solunum kaslarını güçlendiren egzersizler yapın.
+              Do exercises that strengthen your respiratory muscles.
             </p>
           </div>
 
@@ -173,9 +173,9 @@ const HealthInfo = () => {
             <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <Heart className="w-8 h-8 text-purple-600" />
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Sağlıklı Beslenme</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Healthy Nutrition</h3>
             <p className="text-gray-600">
-              Dengeli beslenme akciğer sağlığını destekler.
+              Balanced nutrition supports lung health.
             </p>
           </div>
         </div>
@@ -183,29 +183,29 @@ const HealthInfo = () => {
 
       {/* Warning Signs */}
       <div className="card bg-red-50 border-red-200">
-        <h2 className="text-2xl font-semibold text-red-800 mb-6">Acil Durum Belirtileri</h2>
+        <h2 className="text-2xl font-semibold text-red-800 mb-6">Emergency Warning Signs</h2>
         
         <div className="grid md:grid-cols-2 gap-6">
           <div>
-            <h3 className="text-lg font-semibold text-red-800 mb-4">Hangi Durumlarda Acil Başvuru Gerekir?</h3>
+            <h3 className="text-lg font-semibold text-red-800 mb-4">When Should You Seek Emergency Help?</h3>
             <ul className="space-y-2 text-red-700">
-              <li>• Şiddetli nefes darlığı</li>
-              <li>• Dudaklarda ve parmaklarda morarma</li>
-              <li>• Göğüs ağrısı</li>
-              <li>• Yüksek ateş</li>
-              <li>• Kanlı balgam</li>
-              <li>• Bilinç bulanıklığı</li>
+              <li>• Severe shortness of breath</li>
+              <li>• Bluish lips and fingers</li>
+              <li>• Chest pain</li>
+              <li>• High fever</li>
+              <li>• Bloody sputum</li>
+              <li>• Confusion</li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold text-red-800 mb-4">Ne Yapmalısınız?</h3>
+            <h3 className="text-lg font-semibold text-red-800 mb-4">What Should You Do?</h3>
             <ul className="space-y-2 text-red-700">
-              <li>• Hemen en yakın sağlık kuruluşuna başvurun</li>
-              <li>• Acil servisi arayın (112)</li>
-              <li>• Varsa oksijen cihazınızı kullanın</li>
-              <li>• Rahat bir pozisyonda oturun</li>
-              <li>• Sakin kalmaya çalışın</li>
+              <li>• Immediately go to the nearest healthcare facility</li>
+              <li>• Call emergency services (112)</li>
+              <li>• Use your oxygen device if you have one</li>
+              <li>• Sit in a comfortable position</li>
+              <li>• Try to stay calm</li>
             </ul>
           </div>
         </div>
@@ -214,11 +214,10 @@ const HealthInfo = () => {
       {/* Call to Action */}
       <div className="text-center py-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">
-          Sağlığınız İçin Harekete Geçin
+          Take Action for Your Health
         </h2>
         <p className="text-lg text-gray-600 mb-6">
-          KOAH'ın erken teşhisi hayat kurtarır. Şüpheli belirtileriniz varsa 
-          mutlaka bir göğüs hastalıkları uzmanına başvurun.
+          Early diagnosis of COPD saves lives. If you have suspicious symptoms, be sure to consult a pulmonologist.
         </p>
       </div>
     </div>

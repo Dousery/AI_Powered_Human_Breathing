@@ -60,6 +60,7 @@ class PredictionResult(BaseModel):
     risk_level: str
     description: str
     features: dict
+    patient_info: dict
 
 class HealthInfo(BaseModel):
     title: str
@@ -178,7 +179,13 @@ async def predict_koah(
             probabilities=proba_values,
             risk_level=risk_levels[prediction_value],
             description=descriptions[prediction_value],
-            features=all_features
+            features=all_features,
+            patient_info={
+                "name": metadata_dict.get('Patient Name', ''),
+                "age": metadata_dict.get('age', ''),
+                "smoking": metadata_dict.get('smoking', ''),
+                "test_date": metadata_dict.get('Date', '')
+            }
         )
         
     except Exception as e:
@@ -186,38 +193,38 @@ async def predict_koah(
 
 @app.get("/health-info")
 async def get_health_info():
-    """KOAH hakkında bilgilendirici içerikler"""
+    """Informative content about COPD (in English)"""
     
     health_info = [
         {
-            "title": "KOAH Nedir?",
-            "content": "Kronik Obstrüktif Akciğer Hastalığı (KOAH), akciğerlerdeki hava yollarının daralmasına neden olan kronik bir hastalıktır. Bu durum nefes almayı zorlaştırır ve zamanla kötüleşebilir.",
-            "category": "genel"
+            "title": "What is COPD?",
+            "content": "Chronic Obstructive Pulmonary Disease (COPD) is a chronic disease that causes narrowing of the airways in the lungs. This condition makes breathing difficult and can worsen over time.",
+            "category": "general"
         },
         {
-            "title": "KOAH Belirtileri",
-            "content": "• Nefes darlığı (özellikle fiziksel aktivite sırasında)\n• Kronik öksürük\n• Balgam üretimi\n• Göğüste sıkışma hissi\n• Hırıltılı nefes alma\n• Yorgunluk ve enerji eksikliği",
-            "category": "belirtiler"
+            "title": "COPD Symptoms",
+            "content": "• Shortness of breath (especially during physical activity)\n• Chronic cough\n• Sputum production\n• Feeling of tightness in the chest\n• Wheezing\n• Fatigue and lack of energy",
+            "category": "symptoms"
         },
         {
-            "title": "Risk Faktörleri",
-            "content": "• Sigara içmek (en önemli risk faktörü)\n• Pasif sigara dumanına maruz kalma\n• Hava kirliliği\n• Mesleki toz ve kimyasal maruziyeti\n• Genetik faktörler\n• Yaş (40 yaş üzeri)",
+            "title": "Risk Factors",
+            "content": "• Smoking (the most important risk factor)\n• Exposure to secondhand smoke\n• Air pollution\n• Occupational exposure to dust and chemicals\n• Genetic factors\n• Age (over 40 years)",
             "category": "risk"
         },
         {
-            "title": "Erken Teşhisin Önemi",
-            "content": "KOAH'ın erken teşhisi, hastalığın ilerlemesini yavaşlatmak ve yaşam kalitesini korumak için kritik öneme sahiptir. Erken müdahale ile semptomlar kontrol altına alınabilir ve komplikasyonlar önlenebilir.",
-            "category": "teşhis"
+            "title": "Importance of Early Diagnosis",
+            "content": "Early diagnosis of COPD is critical to slow the progression of the disease and maintain quality of life. Early intervention can help control symptoms and prevent complications.",
+            "category": "diagnosis"
         },
         {
-            "title": "Önleme Yöntemleri",
-            "content": "• Sigarayı bırakın\n• Düzenli egzersiz yapın\n• Sağlıklı beslenin\n• Hava kirliliğinden kaçının\n• Düzenli sağlık kontrolleri yaptırın\n• Aşılarınızı güncel tutun",
-            "category": "önleme"
+            "title": "Prevention Methods",
+            "content": "• Quit smoking\n• Exercise regularly\n• Eat healthy\n• Avoid air pollution\n• Have regular health check-ups\n• Keep your vaccinations up to date",
+            "category": "prevention"
         },
         {
-            "title": "Tedavi Seçenekleri",
-            "content": "• İlaç tedavisi (bronkodilatörler, steroidler)\n• Pulmoner rehabilitasyon\n• Oksijen tedavisi\n• Yaşam tarzı değişiklikleri\n• Cerrahi müdahale (gerekli durumlarda)",
-            "category": "tedavi"
+            "title": "Treatment Options",
+            "content": "• Medication (bronchodilators, steroids)\n• Pulmonary rehabilitation\n• Oxygen therapy\n• Lifestyle changes\n• Surgical intervention (if necessary)",
+            "category": "treatment"
         }
     ]
     

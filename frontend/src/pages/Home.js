@@ -6,39 +6,39 @@ const Home = () => {
   const features = [
     {
       icon: Activity,
-      title: 'AI Destekli Tahmin',
-      description: 'Gelişmiş makine öğrenmesi algoritmaları ile KOAH riskini değerlendirin.',
+      title: 'AI-Powered Prediction',
+      description: 'Evaluate COPD risk with advanced machine learning algorithms.',
       color: 'text-blue-600',
       bgColor: 'bg-blue-50'
     },
     {
       icon: Shield,
-      title: 'Güvenli Analiz',
-      description: 'Hasta verileriniz güvenle işlenir ve korunur.',
+      title: 'Secure Analysis',
+      description: 'Your patient data is processed and protected securely.',
       color: 'text-green-600',
       bgColor: 'bg-green-50'
     },
     {
       icon: Users,
-      title: 'Uzman Desteği',
-      description: 'Sağlık profesyonelleri tarafından geliştirilmiş sistem.',
+      title: 'Expert Support',
+      description: 'A system developed by healthcare professionals.',
       color: 'text-purple-600',
       bgColor: 'bg-purple-50'
     },
     {
       icon: Zap,
-      title: 'Hızlı Sonuç',
-      description: 'Saniyeler içinde detaylı analiz sonuçları alın.',
+      title: 'Fast Results',
+      description: 'Get detailed analysis results in seconds.',
       color: 'text-orange-600',
       bgColor: 'bg-orange-50'
     }
   ];
 
   const stats = [
-    { number: '95%', label: 'Doğruluk Oranı' },
-    { number: '< 30s', label: 'Analiz Süresi' },
-    { number: '17', label: 'Özellik Analizi' },
-    { number: '24/7', label: 'Kullanılabilirlik' }
+    { number: '95%', label: 'Accuracy Rate' },
+    { number: '< 5s', label: 'Analysis Time' },
+    { number: '17', label: 'Feature Analysis' },
+    { number: '24/7', label: 'Availability' }
   ];
 
   return (
@@ -51,22 +51,21 @@ const Home = () => {
               <Heart className="w-10 h-10 text-white" />
             </div>
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              KOAH Tahminleme
-              <span className="block text-blue-600">AI Sistemi</span>
+              COPD Prediction
+              <span className="block text-blue-600">AI System</span>
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              Yapay zeka destekli sistem ile KOAH hastalığını erken tespit edin. 
-              Nefes ve ses verilerinizi analiz ederek sağlık durumunuzu değerlendirin.
+              Detect COPD early with an AI-powered system. Analyze your breath and sound data to assess your health status.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/prediction" className="btn-primary inline-flex items-center">
                 <Activity className="w-5 h-5 mr-2" />
-                Hemen Başla
+                Start Now
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
               <Link to="/health-info" className="btn-secondary inline-flex items-center">
                 <Info className="w-5 h-5 mr-2" />
-                Daha Fazla Bilgi
+                More Information
               </Link>
             </div>
           </div>
@@ -77,7 +76,7 @@ const Home = () => {
       <section className="py-12 bg-white rounded-2xl shadow-lg">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-            Sistem Performansı
+            System Performance
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -94,7 +93,7 @@ const Home = () => {
       <section className="py-12">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-            Neden KOAH AI?
+            Why KOAH AI?
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => {
@@ -117,15 +116,14 @@ const Home = () => {
       <section className="py-12 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6">
-            Sağlığınız İçin Hemen Başlayın
+            Start for Your Health
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            KOAH'ın erken teşhisi hayat kurtarır. AI destekli sistemimiz ile 
-            sağlık durumunuzu değerlendirin.
+            Early diagnosis of COPD saves lives. Assess your health status with our AI-powered system.
           </p>
           <Link to="/prediction" className="bg-white text-blue-600 hover:bg-gray-50 font-semibold py-4 px-8 rounded-lg inline-flex items-center transition-colors duration-200">
             <Activity className="w-5 h-5 mr-2" />
-            Ücretsiz Analiz Yap
+            Free Analysis
             <ArrowRight className="w-5 h-5 ml-2" />
           </Link>
         </div>
@@ -135,16 +133,14 @@ const Home = () => {
       <section className="py-12 bg-white rounded-2xl shadow-lg">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">
-            KOAH Hakkında
+            About COPD
           </h2>
           <p className="text-lg text-gray-600 mb-8">
-            Kronik Obstrüktif Akciğer Hastalığı (KOAH), dünya genelinde milyonlarca insanı etkileyen 
-            ciddi bir solunum hastalığıdır. Erken teşhis ve tedavi, hastalığın ilerlemesini yavaşlatmak 
-            ve yaşam kalitesini korumak için kritik öneme sahiptir.
+            Chronic Obstructive Pulmonary Disease (COPD) is a serious respiratory disease affecting millions of people worldwide. Early diagnosis and treatment are critical to slow the progression of the disease and maintain quality of life.
           </p>
           <Link to="/health-info" className="btn-primary inline-flex items-center">
             <Info className="w-5 h-5 mr-2" />
-            Detaylı Bilgi Al
+            Get Detailed Information
           </Link>
         </div>
       </section>

@@ -25,32 +25,32 @@ const Prediction = () => {
     switch (prediction) {
       case 0:
         return {
-          title: 'Normal Durum',
-          description: 'Hasta normal solunum fonksiyonlarına sahip görünüyor.',
+          title: 'Normal',
+          description: 'The patient appears to have normal respiratory function.',
           color: 'text-green-600',
           bgColor: 'bg-green-50',
           icon: CheckCircle
         };
       case 1:
         return {
-          title: 'Orta Risk',
-          description: 'Hastada hafif solunum problemleri tespit edildi. Takip önerilir.',
+          title: 'Moderate Risk',
+          description: 'Mild respiratory problems detected. Follow-up is recommended.',
           color: 'text-yellow-600',
           bgColor: 'bg-yellow-50',
           icon: AlertCircle
         };
       case 2:
         return {
-          title: 'Yüksek Risk',
-          description: 'Hastada ciddi solunum problemleri tespit edildi. Acil değerlendirme gerekli.',
+          title: 'High Risk',
+          description: 'Serious respiratory problems detected. Urgent evaluation required.',
           color: 'text-red-600',
           bgColor: 'bg-red-50',
           icon: XCircle
         };
       default:
         return {
-          title: 'Bilinmeyen',
-          description: 'Tahmin sonucu belirlenemedi.',
+          title: 'Unknown',
+          description: 'Prediction result could not be determined.',
           color: 'text-gray-600',
           bgColor: 'bg-gray-50',
           icon: AlertCircle
@@ -60,7 +60,7 @@ const Prediction = () => {
 
   const handleSubmit = async () => {
     if (!files.breath || !files.audio || !files.metadata) {
-      setError('Lütfen tüm dosyaları yükleyin.');
+      setError('Please upload all files.');
       return;
     }
 
@@ -81,7 +81,7 @@ const Prediction = () => {
 
       setPrediction(response.data);
     } catch (err) {
-      setError(err.response?.data?.detail || 'Tahmin sırasında bir hata oluştu.');
+      setError(err.response?.data?.detail || 'An error occurred during prediction.');
     } finally {
       setLoading(false);
     }
@@ -89,28 +89,28 @@ const Prediction = () => {
 
   const chartData = prediction ? [
     { name: 'Normal', value: prediction.probabilities[0], color: '#10b981' },
-    { name: 'Orta Risk', value: prediction.probabilities[1], color: '#f59e0b' },
-    { name: 'Yüksek Risk', value: prediction.probabilities[2], color: '#ef4444' }
+    { name: 'Moderate Risk', value: prediction.probabilities[1], color: '#f59e0b' },
+    { name: 'High Risk', value: prediction.probabilities[2], color: '#ef4444' }
   ] : [];
 
   return (
     <div className="max-w-6xl mx-auto space-y-8">
       <div className="text-center">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">KOAH Tahminleme</h1>
+        <h1 className="text-4xl font-bold text-gray-900 mb-4">COPD Prediction</h1>
         <p className="text-xl text-gray-600">
-          Nefes ve ses verilerinizi yükleyerek AI destekli KOAH risk analizi yapın
+          Upload your breath and sound data to perform AI-powered COPD risk analysis
         </p>
       </div>
 
       {/* File Upload Section */}
       <div className="card">
-        <h2 className="text-2xl font-semibold text-gray-900 mb-6">Veri Dosyalarını Yükleyin</h2>
+        <h2 className="text-2xl font-semibold text-gray-900 mb-6">Upload Data Files</h2>
         
         <div className="grid md:grid-cols-3 gap-6">
           {/* Breath Sensor Data */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Nefes Sensörü Verisi (column1.txt)
+              Breath Sensor Data (column1.txt)
             </label>
             <div className="file-upload">
               <input
@@ -123,7 +123,7 @@ const Prediction = () => {
               <label htmlFor="breath-file" className="cursor-pointer">
                 <Upload className="w-8 h-8 mx-auto mb-2 text-gray-400" />
                 <p className="text-sm text-gray-600">
-                  {files.breath ? files.breath.name : 'Dosya seçin'}
+                  {files.breath ? files.breath.name : 'Select file'}
                 </p>
               </label>
             </div>
@@ -132,7 +132,7 @@ const Prediction = () => {
           {/* Audio Sensor Data */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Ses Sensörü Verisi (column3.txt)
+              Sound Sensor Data (column3.txt)
             </label>
             <div className="file-upload">
               <input
@@ -145,7 +145,7 @@ const Prediction = () => {
               <label htmlFor="audio-file" className="cursor-pointer">
                 <Upload className="w-8 h-8 mx-auto mb-2 text-gray-400" />
                 <p className="text-sm text-gray-600">
-                  {files.audio ? files.audio.name : 'Dosya seçin'}
+                  {files.audio ? files.audio.name : 'Select file'}
                 </p>
               </label>
             </div>
@@ -154,7 +154,7 @@ const Prediction = () => {
           {/* Metadata */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Hasta Bilgileri (metadata.txt)
+              Patient Information (metadata.txt)
             </label>
             <div className="file-upload">
               <input
@@ -167,7 +167,7 @@ const Prediction = () => {
               <label htmlFor="metadata-file" className="cursor-pointer">
                 <FileText className="w-8 h-8 mx-auto mb-2 text-gray-400" />
                 <p className="text-sm text-gray-600">
-                  {files.metadata ? files.metadata.name : 'Dosya seçin'}
+                  {files.metadata ? files.metadata.name : 'Select file'}
                 </p>
               </label>
             </div>
@@ -192,12 +192,12 @@ const Prediction = () => {
             {loading ? (
               <>
                 <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                Analiz Ediliyor...
+                Analyzing...
               </>
             ) : (
               <>
                 <Activity className="w-5 h-5 mr-2" />
-                Tahmin Et
+                Predict
               </>
             )}
           </button>
@@ -209,8 +209,24 @@ const Prediction = () => {
         <div className="space-y-6">
           {/* Prediction Result */}
           <div className="card">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-6">Tahmin Sonucu</h2>
-            
+            <h2 className="text-2xl font-semibold text-gray-900 mb-6">Prediction Result</h2>
+            {/* Patient Info */}
+            {prediction.patient_info && (
+              <div className="mb-6 flex flex-wrap gap-6 items-center bg-blue-50 border border-blue-100 rounded-lg p-4">
+                <div>
+                  <span className="font-semibold text-gray-700">Name:</span> {prediction.patient_info.name}
+                </div>
+                <div>
+                  <span className="font-semibold text-gray-700">Age:</span> {prediction.patient_info.age}
+                </div>
+                <div>
+                  <span className="font-semibold text-gray-700">Smoking:</span> {prediction.patient_info.smoking}
+                </div>
+                <div>
+                  <span className="font-semibold text-gray-700">Test Date:</span> {prediction.patient_info.test_date}
+                </div>
+              </div>
+            )}
             {(() => {
               const riskInfo = getRiskLevelInfo(prediction.prediction);
               const Icon = riskInfo.icon;
@@ -231,7 +247,7 @@ const Prediction = () => {
 
           {/* Probability Chart */}
           <div className="card">
-            <h3 className="text-xl font-semibold text-gray-900 mb-6">Tahmin Olasılıkları</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-6">Prediction Probabilities</h3>
             <div className="h-64">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={chartData}>
@@ -239,8 +255,8 @@ const Prediction = () => {
                   <XAxis dataKey="name" />
                   <YAxis />
                   <Tooltip 
-                    formatter={(value) => [`${(value * 100).toFixed(1)}%`, 'Olasılık']}
-                    labelFormatter={(label) => `${label} Durumu`}
+                    formatter={(value) => [`${(value * 100).toFixed(1)}%`, 'Probability']}
+                    labelFormatter={(label) => `${label} Status`}
                   />
                   <Bar dataKey="value" fill="#3b82f6" />
                 </BarChart>
@@ -250,12 +266,12 @@ const Prediction = () => {
 
           {/* Detailed Probabilities */}
           <div className="card">
-            <h3 className="text-xl font-semibold text-gray-900 mb-6">Detaylı Olasılıklar</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-6">Detailed Probabilities</h3>
             <div className="grid md:grid-cols-3 gap-4">
               {[
                 { name: 'Normal', prob: prediction.probabilities[0], color: 'bg-green-100 text-green-800' },
-                { name: 'Orta Risk', prob: prediction.probabilities[1], color: 'bg-yellow-100 text-yellow-800' },
-                { name: 'Yüksek Risk', prob: prediction.probabilities[2], color: 'bg-red-100 text-red-800' }
+                { name: 'Moderate Risk', prob: prediction.probabilities[1], color: 'bg-yellow-100 text-yellow-800' },
+                { name: 'High Risk', prob: prediction.probabilities[2], color: 'bg-red-100 text-red-800' }
               ].map((item, index) => (
                 <div key={index} className="text-center p-4 rounded-lg">
                   <div className={`text-2xl font-bold mb-2 ${item.color}`}>
@@ -269,40 +285,40 @@ const Prediction = () => {
 
           {/* Recommendations */}
           <div className="card">
-            <h3 className="text-xl font-semibold text-gray-900 mb-6">Öneriler</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-6">Recommendations</h3>
             <div className="space-y-4">
               {prediction.prediction === 0 && (
                 <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
-                  <h4 className="font-semibold text-green-800 mb-2">Normal Durum İçin Öneriler:</h4>
+                  <h4 className="font-semibold text-green-800 mb-2">Recommendations for Normal:</h4>
                   <ul className="text-green-700 space-y-1">
-                    <li>• Düzenli sağlık kontrollerinizi yaptırın</li>
-                    <li>• Sigara içiyorsanız bırakın</li>
-                    <li>• Düzenli egzersiz yapın</li>
-                    <li>• Sağlıklı beslenin</li>
+                    <li>• Have regular health check-ups</li>
+                    <li>• Quit smoking if you smoke</li>
+                    <li>• Exercise regularly</li>
+                    <li>• Eat healthy</li>
                   </ul>
                 </div>
               )}
               
               {prediction.prediction === 1 && (
                 <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-                  <h4 className="font-semibold text-yellow-800 mb-2">Orta Risk İçin Öneriler:</h4>
+                  <h4 className="font-semibold text-yellow-800 mb-2">Recommendations for Moderate Risk:</h4>
                   <ul className="text-yellow-700 space-y-1">
-                    <li>• Bir göğüs hastalıkları uzmanına başvurun</li>
-                    <li>• Solunum fonksiyon testleri yaptırın</li>
-                    <li>• Sigarayı mutlaka bırakın</li>
-                    <li>• Düzenli takip altında olun</li>
+                    <li>• Consult a pulmonologist</li>
+                    <li>• Take pulmonary function tests</li>
+                    <li>• Absolutely quit smoking</li>
+                    <li>• Be under regular follow-up</li>
                   </ul>
                 </div>
               )}
               
               {prediction.prediction === 2 && (
                 <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
-                  <h4 className="font-semibold text-red-800 mb-2">Yüksek Risk İçin Öneriler:</h4>
+                  <h4 className="font-semibold text-red-800 mb-2">Recommendations for High Risk:</h4>
                   <ul className="text-red-700 space-y-1">
-                    <li>• Acil olarak bir göğüs hastalıkları uzmanına başvurun</li>
-                    <li>• Detaylı solunum fonksiyon testleri yaptırın</li>
-                    <li>• Gerekirse hastane ortamında değerlendirme</li>
-                    <li>• Tedavi planı oluşturun</li>
+                    <li>• Consult a pulmonologist urgently</li>
+                    <li>• Take detailed pulmonary function tests</li>
+                    <li>• Get evaluated in a hospital setting if necessary</li>
+                    <li>• Create a treatment plan</li>
                   </ul>
                 </div>
               )}
