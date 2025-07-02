@@ -36,7 +36,7 @@ const Home = () => {
 
   const stats = [
     { number: '95%', label: 'Accuracy Rate' },
-    { number: '< 5s', label: 'Analysis Time' },
+    { number: '< 3s', label: 'Analysis Time' },
     { number: '17', label: 'Feature Analysis' },
     { number: '24/7', label: 'Availability' }
   ];
