@@ -1,145 +1,165 @@
-# KOAH Tahminleme - AI Destekli Sağlık Uygulaması
+# 🫁 COPD Prediction - AI-Powered Health Application
 
-Bu proje, KOAH (Kronik Obstrüktif Akciğer Hastalığı) tespiti için yapay zeka destekli modern bir web uygulamasıdır. FastAPI backend ve React frontend ile geliştirilmiştir.
-
-## 🚀 Özellikler
-
-- **AI Destekli Tahminleme**: Makine öğrenmesi modeli ile KOAH risk analizi
-- **Modern Web Arayüzü**: React ve Tailwind CSS ile responsive tasarım
-- **Güvenli API**: FastAPI ile güçlü backend servisleri
-- **Görsel Analiz**: Recharts ile interaktif sonuç grafikleri
-- **Sağlık Bilgileri**: KOAH hakkında kapsamlı bilgilendirme içeriği
-- **Kullanıcı Dostu**: Sade ve anlaşılır arayüz
-
-## 🏗️ Proje Yapısı
-
-```
-AI_Powered_Human_Breathing/
-├── backend/                 # FastAPI backend
-│   ├── main.py             # Ana API dosyası
-│   ├── requirements.txt    # Python bağımlılıkları
-│   └── README.md          # Backend dokümantasyonu
-├── frontend/               # React frontend
-│   ├── src/               # React kaynak kodları
-│   ├── public/            # Statik dosyalar
-│   ├── package.json       # Node.js bağımlılıkları
-│   └── README.md          # Frontend dokümantasyonu
-├── model/                 # Eğitilmiş ML modelleri
-│   ├── best_model.joblib
-│   ├── feature_selector.joblib
-│   ├── scaler.joblib
-│   └── selected_features.pkl
-├── app_interface.py       # Streamlit uygulaması (eski)
-└── README.md             # Bu dosya
-```
-
-## 🛠️ Kurulum
-
-### Backend Kurulumu
-
-1. Python sanal ortamı oluşturun:
-```bash
-cd backend
-python -m venv venv
-source venv/bin/activate  # Linux/Mac
-# veya
-venv\Scripts\activate     # Windows
-```
-
-2. Bağımlılıkları yükleyin:
-```bash
-pip install -r requirements.txt
-```
-
-3. Backend'i çalıştırın:
-```bash
-python main.py
-```
-
-Backend http://localhost:8000 adresinde çalışacaktır.
-
-### Frontend Kurulumu
-
-1. Node.js bağımlılıklarını yükleyin:
-```bash
-cd frontend
-npm install
-```
-
-2. Frontend'i çalıştırın:
-```bash
-npm start
-```
-
-Frontend http://localhost:3000 adresinde çalışacaktır.
-
-## 📊 API Endpoints
-
-- `GET /` - Ana sayfa
-- `GET /health` - Sağlık kontrolü
-- `POST /predict` - KOAH tahmini
-- `GET /health-info` - KOAH hakkında bilgiler
-- `GET /model-info` - Model bilgileri
-
-## 🎯 Kullanım
-
-1. **Ana Sayfa**: Uygulama hakkında genel bilgiler
-2. **KOAH Tahmini**: Dosya yükleme ve analiz
-   - `column1.txt` (nefes sensörü verisi)
-   - `column3.txt` (ses sensörü verisi)
-   - `metadata.txt` (hasta bilgileri)
-3. **Sağlık Bilgileri**: KOAH hakkında detaylı bilgiler
-4. **Hakkında**: Proje ve ekip bilgileri
-
-## 🔬 Teknik Detaylar
-
-### AI Model
-- **Model Tipi**: Ensemble Model
-- **Özellik Sayısı**: 17 seçili özellik
-- **Sınıflar**: 3 (Normal, Orta Risk, Yüksek Risk)
-- **Analiz Süresi**: < 30 saniye
-
-### Analiz Edilen Veriler
-- Nefes sensörü verisi (solunum gücü ve paterni)
-- Ses sensörü verisi (solunum sesleri)
-- Hasta bilgileri (yaş, sigara durumu)
-- Sinyal işleme (FFT, MFCC, istatistiksel özellikler)
-
-### Teknoloji Stack
-- **Backend**: FastAPI, Python, Scikit-learn, NumPy, SciPy
-- **Frontend**: React, Tailwind CSS, Recharts, Axios
-- **AI/ML**: Ensemble Models, Feature Engineering, Signal Processing
-
-## 🎨 Tasarım
-
-- **Tema**: Sağlık ve nefes konsepti
-- **Renkler**: Açık mavi, beyaz tonlar
-- **Responsive**: Mobil ve desktop uyumlu
-- **Modern UI**: Temiz ve kullanıcı dostu arayüz
-
-## 🤝 Katkıda Bulunma
-
-1. Projeyi fork edin
-2. Feature branch oluşturun (`git checkout -b feature/amazing-feature`)
-3. Değişikliklerinizi commit edin (`git commit -m 'Add amazing feature'`)
-4. Branch'inizi push edin (`git push origin feature/amazing-feature`)
-5. Pull Request oluşturun
-
-## 📄 Lisans
-
-Bu proje MIT lisansı altında lisanslanmıştır.
-
-## ⚠️ Önemli Not
-
-Bu uygulama tıbbi teşhis yerine geçmez. Sonuçlar sadece bilgilendirme amaçlıdır. 
-Sağlık sorunlarınız için mutlaka bir sağlık profesyoneline başvurun.
-
-## 📞 İletişim
-
-Proje hakkında sorularınız için:
-- Teknik destek: Backend ve frontend sorunları
-- Sağlık danışmanlığı: KOAH hakkında bilgi ve öneriler
+A modern AI-powered web application for detecting **COPD (Chronic Obstructive Pulmonary Disease)** using sensor data, built with **FastAPI** (backend) and **React** (frontend).
 
 ---
 
-**KOAH AI** - Yapay Zeka Destekli Sağlık Teknolojisi
+## 🚀 Features
+
+- 🤖 **AI-Powered Prediction**: Risk analysis using a trained machine learning model  
+- 💻 **Modern Web Interface**: Responsive design with React + Tailwind CSS  
+- 🔐 **Secure API**: Built with FastAPI  
+- 📈 **Visual Analytics**: Interactive result charts via Recharts  
+- 🩺 **Health Info**: Informative COPD-related content  
+- 👨‍⚕️ **User-Friendly**: Simple and intuitive UI
+
+---
+
+## 🏗️ Project Structure
+
+AI_Powered_Human_Breathing/
+├── backend/ # FastAPI backend
+│ ├── main.py
+│ ├── requirements.txt
+│ └── README.md
+├── frontend/ # React frontend
+│ ├── src/
+│ ├── public/
+│ ├── package.json
+│ └── README.md
+├── model/ # Trained ML models
+│ ├── best_model.joblib
+│ ├── feature_selector.joblib
+│ ├── scaler.joblib
+│ └── selected_features.pkl
+├── app_interface.py # (Deprecated) Streamlit app
+└── README.md # This file
+
+yaml
+Kopyala
+Düzenle
+
+---
+
+## 🛠️ Installation & Setup
+
+### 🔧 Backend (FastAPI)
+
+```bash
+# Navigate to backend folder
+cd backend
+
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run server
+python main.py
+Runs at: http://localhost:8000
+
+🖥️ Frontend (React)
+bash
+Kopyala
+Düzenle
+# Navigate to frontend folder
+cd frontend
+
+# Install Node.js dependencies
+npm install
+
+# Start frontend
+npm start
+Runs at: http://localhost:3000
+
+📊 API Endpoints
+Method	Endpoint	Description
+GET	/	Homepage
+GET	/health	Health check
+POST	/predict	COPD prediction
+GET	/health-info	Information about COPD
+GET	/model-info	Details about ML model
+
+🎯 How to Use
+Homepage: Introduction to the app
+
+Prediction: Upload files and analyze:
+
+column1.txt: Breath sensor data
+
+column3.txt: Audio sensor data
+
+metadata.txt: Patient info
+
+Health Info: Learn about COPD
+
+About: Team and project background
+
+🔬 Technical Details
+AI Model
+Type: Ensemble Model
+
+Features: 17 selected features
+
+Classes: 3 (Normal, Moderate Risk, High Risk)
+
+Analysis Time: < 30 seconds
+
+Input Data
+📈 Breath sensor (pattern, force)
+
+🔊 Audio sensor (breathing sounds)
+
+🧍 Patient info (age, smoking)
+
+⚙️ Signal processing (FFT, MFCC, statistics)
+
+Technology Stack
+Layer	Tools
+Backend	FastAPI, Python, Scikit-learn, NumPy, SciPy
+Frontend	React, Tailwind CSS, Recharts, Axios
+AI/ML	Ensemble models, Feature Engineering, Signal Processing
+
+🎨 UI Design
+Theme: Health & Respiratory
+
+Colors: Light blue, white
+
+Responsive: Mobile & Desktop ready
+
+Style: Clean, minimal, user-friendly
+
+🤝 Contributing
+We welcome contributions!
+
+bash
+Kopyala
+Düzenle
+# Fork the repo
+# Create a new branch
+git checkout -b feature/amazing-feature
+
+# Make changes and commit
+git commit -m "Add amazing feature"
+
+# Push your branch
+git push origin feature/amazing-feature
+
+# Open a Pull Request
+📄 License
+Licensed under the MIT License.
+See LICENSE for more information.
+
+⚠️ Disclaimer
+This app is not intended for medical diagnosis.
+Results are for informational purposes only.
+Always consult a healthcare professional for medical advice.
+
+📞 Contact
+For project-related inquiries:
+
+🛠️ Technical Support: Backend & Frontend issues
+
+🩺 Health Questions: COPD-related content and suggestions
